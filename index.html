@@ -82,18 +82,22 @@ margin-top:15px;
 </form>
 
 <p id="successMessage">
-Thank you! Your details have been submitted successfully.
+✅ Thank you! Your details have been submitted successfully.
 </p>
 
 </div>
 
 <script>
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbxsrB4zqOju5ggm73w2VN2_VIxDTNoUDaDZawpqgSI6i5K8NvfG1VGREBkpBXPgJqB2WQ/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwHU9Xla5ivMMenIkVdn41ZX1BlY3v6ESxttfB4-KxX5FmyJnzPRskDdr21Lxxe3BLP0A/exec";
 
-document.getElementById("leadForm").addEventListener("submit", function(e){
+document.getElementById("leadForm").addEventListener("submit", async function(e){
 
 e.preventDefault();
+
+const submitButton = document.querySelector("button[type='submit']");
+submitButton.disabled = true;
+submitButton.innerText = "Submitting...";
 
 const data = {
 name: document.getElementById("name").value,
@@ -105,18 +109,30 @@ birthplace: document.getElementById("birthplace").value,
 message: document.getElementById("message").value
 };
 
-fetch(scriptURL,{
+try {
+
+await fetch(scriptURL,{
 method:"POST",
+mode:"no-cors",
+headers:{
+"Content-Type":"text/plain"
+},
 body:JSON.stringify(data)
-})
-.then(response => {
+});
+
 document.getElementById("successMessage").style.display="block";
 document.getElementById("leadForm").reset();
-})
-.catch(error => {
+
+}
+catch(error){
+
 console.error(error);
-alert("Error! Please try again.");
-});
+alert("Submission failed. Please try again.");
+
+}
+
+submitButton.disabled = false;
+submitButton.innerText = "Submit";
 
 });
 
