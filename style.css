@@ -948,3 +948,214 @@ p{margin:0;}
   .privacy-card{padding:28px;}
   .section{padding:90px 0;}
 }
+/* ===============================
+   PREMIUM HERO UPGRADE
+==================================*/
+
+.hero{
+    background:
+    linear-gradient(rgba(2,6,23,0.75),rgba(2,6,23,0.85)),
+    url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?q=80&w=1920&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.hero-title{
+    text-shadow:0 0 30px rgba(212,175,55,.35);
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at center,
+    rgba(212,175,55,.08),
+    transparent 60%);
+    pointer-events:none;
+}
+
+/* ===============================
+   GLASSMORPHISM CARDS
+==================================*/
+
+.number-card,
+.service-card,
+.privacy-card,
+.testimonial-card{
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(212,175,55,.15);
+}
+
+.number-card:hover,
+.service-card:hover{
+    transform:translateY(-12px);
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.4),
+    0 0 30px rgba(212,175,55,.15);
+}
+
+/* ===============================
+   GOLDEN HOVER EFFECT
+==================================*/
+
+.service-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.service-card::before{
+    content:'';
+    position:absolute;
+    top:-100%;
+    left:-100%;
+    width:250%;
+    height:250%;
+    background:
+    linear-gradient(
+    45deg,
+    transparent,
+    rgba(255,215,0,.08),
+    transparent);
+    transition:1s;
+}
+
+.service-card:hover::before{
+    top:0;
+    left:0;
+}
+
+/* ===============================
+   PREMIUM FORM
+==================================*/
+
+.consult-form{
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.03)
+    );
+    border:1px solid rgba(212,175,55,.25);
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.5);
+}
+
+.consult-form input,
+.consult-form textarea{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.consult-form input:focus,
+.consult-form textarea:focus{
+    border-color:#FFD700;
+    box-shadow:
+    0 0 20px rgba(255,215,0,.2);
+}
+
+/* ===============================
+   PREMIUM BUTTON
+==================================*/
+
+.btn-primary{
+    background:
+    linear-gradient(
+    135deg,
+    #6A0DAD,
+    #8B5CF6,
+    #D4AF37
+    );
+    background-size:200% 200%;
+    animation:gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px) scale(1.03);
+}
+
+/* ===============================
+   SECTION TITLES
+==================================*/
+
+.section-title{
+    text-shadow:
+    0 0 20px rgba(212,175,55,.2);
+}
+
+.section-title::after{
+    content:'';
+    display:block;
+    width:120px;
+    height:2px;
+    margin:18px auto 0;
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    #D4AF37,
+    transparent
+    );
+}
+
+/* ===============================
+   TESTIMONIALS
+==================================*/
+
+.testimonial-card{
+    position:relative;
+}
+
+.testimonial-card::before{
+    content:'❝';
+    position:absolute;
+    top:20px;
+    left:25px;
+    font-size:70px;
+    color:rgba(212,175,55,.15);
+    font-family:serif;
+}
+
+/* ===============================
+   FLOATING ANIMATION
+==================================*/
+
+.service-icon,
+.number-glyph{
+    animation:floaty 4s ease-in-out infinite;
+}
+
+@keyframes floaty{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
+}
+
+/* ===============================
+   MOBILE
+==================================*/
+
+@media(max-width:768px){
+
+.hero-title{
+    font-size:42px;
+}
+
+.hero-sub{
+    font-size:16px;
+}
+
+.btn{
+    width:100%;
+}
+
+}
