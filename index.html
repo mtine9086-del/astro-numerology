@@ -2,141 +2,517 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Astro Numerology</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Astro Numerology | Unlock The Hidden Power Of Your Numbers</title>
+<meta name="description" content="Discover your Life Path, Destiny, Relationship, Career, and Wealth blueprint through ancient numerology. Book a confidential, personalized numerology consultation today.">
+<meta name="keywords" content="numerology, life path number, destiny number, numerology consultation, astro numerology, name correction, business numerology">
+<meta name="author" content="Astro Numerology">
+<link rel="canonical" href="https://astronumerology.example.com/">
 
-<style>
-body{
-font-family:Arial,sans-serif;
-background:#f4f4f4;
-text-align:center;
-padding:40px;
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Astro Numerology">
+<meta property="og:title" content="Astro Numerology | Unlock The Hidden Power Of Your Numbers">
+<meta property="og:description" content="Discover your Life Path, Destiny, Relationships, Career, Wealth and Spiritual Purpose through ancient numerology. Book your confidential reading.">
+<meta property="og:image" content="https://astronumerology.example.com/og-image.jpg">
+<meta property="og:url" content="https://astronumerology.example.com/">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Astro Numerology | Unlock The Hidden Power Of Your Numbers">
+<meta name="twitter:description" content="Discover your Life Path, Destiny, Relationships, Career, Wealth and Spiritual Purpose through ancient numerology.">
+<meta name="twitter:image" content="https://astronumerology.example.com/og-image.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Astro Numerology",
+  "description": "Personalized numerology consultation service covering Life Path, Destiny, Relationship, Career and Business Numerology readings.",
+  "areaServed": "Worldwide",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "5000"
+  }
 }
-
-.container{
-max-width:600px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-input,textarea{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:5px;
-box-sizing:border-box;
-}
-
-button{
-background:#6a0dad;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:5px;
-cursor:pointer;
-}
-
-button:hover{
-opacity:0.9;
-}
-
-#successMessage{
-display:none;
-color:green;
-font-weight:bold;
-margin-top:15px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>Astro Numerology</h1>
-
-<p>Get Your Personalized Numerology Consultation</p>
-
-<form id="leadForm">
-
-<input type="text" id="name" placeholder="Full Name" required>
-
-<input type="tel" id="mobile" placeholder="Mobile Number" required>
-
-<input type="email" id="email" placeholder="Email Address" required>
-
-<input type="date" id="dob">
-
-<input type="text" id="birthtime" placeholder="Birth Time">
-
-<input type="text" id="birthplace" placeholder="Birth Place">
-
-<textarea id="message" placeholder="Your Message"></textarea>
-
-<button type="submit">Submit</button>
-
-</form>
-
-<p id="successMessage">
-✅ Thank you! Your details have been submitted successfully.
-</p>
-
-</div>
-
-<script>
-
-const scriptURL = "https://script.google.com/macros/s/AKfycbwHU9Xla5ivMMenIkVdn41ZX1BlY3v6ESxttfB4-KxX5FmyJnzPRskDdr21Lxxe3BLP0A/exec";
-
-document.getElementById("leadForm").addEventListener("submit", async function(e){
-
-e.preventDefault();
-
-const submitButton = document.querySelector("button[type='submit']");
-submitButton.disabled = true;
-submitButton.innerText = "Submitting...";
-
-const data = {
-name: document.getElementById("name").value,
-mobile: document.getElementById("mobile").value,
-email: document.getElementById("email").value,
-dob: document.getElementById("dob").value,
-birthtime: document.getElementById("birthtime").value,
-birthplace: document.getElementById("birthplace").value,
-message: document.getElementById("message").value
-};
-
-try {
-
-await fetch(scriptURL,{
-method:"POST",
-mode:"no-cors",
-headers:{
-"Content-Type":"text/plain"
-},
-body:JSON.stringify(data)
-});
-
-document.getElementById("successMessage").style.display="block";
-document.getElementById("leadForm").reset();
-
-}
-catch(error){
-
-console.error(error);
-alert("Submission failed. Please try again.");
-
-}
-
-submitButton.disabled = false;
-submitButton.innerText = "Submit";
-
-});
-
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= CUSTOM CURSOR / GLOW ================= -->
+<div class="cosmic-glow" id="cosmicGlow" aria-hidden="true"></div>
+
+<!-- ================= STARFIELD CANVAS ================= -->
+<canvas id="starfield" aria-hidden="true"></canvas>
+<div class="nebula nebula-1" aria-hidden="true"></div>
+<div class="nebula nebula-2" aria-hidden="true"></div>
+
+<!-- ================= HEADER / NAV ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-glyph" aria-hidden="true">✦</span>
+      <span class="brand-name">Astro<em>Numerology</em></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="#about">Numerology</a>
+      <a href="#services">Services</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#faq">FAQ</a>
+      <a href="#consult" class="nav-cta">Book Consultation</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-orbit" aria-hidden="true">
+      <div class="orbit-ring ring-1"></div>
+      <div class="orbit-ring ring-2"></div>
+      <div class="orbit-ring ring-3"></div>
+      <span class="orbit-digit d1">7</span>
+      <span class="orbit-digit d2">3</span>
+      <span class="orbit-digit d3">9</span>
+      <span class="orbit-digit d4">1</span>
+      <span class="orbit-digit d5">11</span>
+      <span class="orbit-digit d6">22</span>
+      <div class="sacred-geometry" aria-hidden="true">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="url(#gg)" stroke-width="0.6">
+            <circle cx="200" cy="200" r="60"/>
+            <circle cx="200" cy="140" r="60"/>
+            <circle cx="200" cy="260" r="60"/>
+            <circle cx="148" cy="170" r="60"/>
+            <circle cx="148" cy="230" r="60"/>
+            <circle cx="252" cy="170" r="60"/>
+            <circle cx="252" cy="230" r="60"/>
+          </g>
+          <defs>
+            <linearGradient id="gg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#D4AF37"/>
+              <stop offset="1" stop-color="#6A0DAD"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">Ancient Science. Modern Clarity.</p>
+      <h1 class="hero-title reveal">Unlock The Hidden Power Of <span class="gold-text">Your Numbers</span></h1>
+      <p class="hero-sub reveal">Discover your Life Path, Destiny, Relationships, Career, Wealth, and Spiritual Purpose through ancient numerology.</p>
+
+      <div class="hero-actions reveal">
+        <a href="#consult" class="btn btn-primary">
+          <span>Get Free Reading</span>
+        </a>
+        <a href="#services" class="btn btn-outline">Book Consultation</a>
+      </div>
+
+      <button class="scroll-indicator" id="scrollIndicator" aria-label="Scroll to explore">
+        <span class="scroll-line"></span>
+        <span class="scroll-text">Scroll to explore your numbers</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= TRUST BAR ================= -->
+  <section class="trust-bar">
+    <div class="container">
+      <ul class="trust-tags">
+        <li><span aria-hidden="true">✓</span> Accurate Readings</li>
+        <li><span aria-hidden="true">✓</span> Confidential Consultation</li>
+        <li><span aria-hidden="true">✓</span> Worldwide Service</li>
+        <li><span aria-hidden="true">✓</span> Personalized Reports</li>
+      </ul>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number" data-count="5000" data-suffix="+">0</span>
+          <span class="stat-label">Readings</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="98" data-suffix="%">0</span>
+          <span class="stat-label">Satisfaction</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="25" data-suffix="+">0</span>
+          <span class="stat-label">Countries</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-count="10" data-suffix="+">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT NUMEROLOGY ================= -->
+  <section class="section about" id="about">
+    <div class="container">
+      <p class="section-eyebrow reveal">The Language of Numbers</p>
+      <h2 class="section-title reveal">Four Numbers Write Your Blueprint</h2>
+      <p class="section-lead reveal">Every name and birth date carries a vibration. Once decoded, four core numbers reveal how you move through the world — and how to move through it better.</p>
+
+      <div class="number-grid">
+        <article class="number-card reveal">
+          <div class="number-glyph">01</div>
+          <h3>Life Path Number</h3>
+          <p>Derived from your date of birth, this is the master number of your journey — your natural direction, lessons, and opportunities in this lifetime.</p>
+        </article>
+        <article class="number-card reveal">
+          <div class="number-glyph">02</div>
+          <h3>Destiny Number</h3>
+          <p>Calculated from your full birth name, it reveals your life's purpose and the mark you're here to leave on the world.</p>
+        </article>
+        <article class="number-card reveal">
+          <div class="number-glyph">03</div>
+          <h3>Soul Urge Number</h3>
+          <p>Hidden in the vowels of your name, this number uncovers your deepest desires, motivations, and what truly fulfills you.</p>
+        </article>
+        <article class="number-card reveal">
+          <div class="number-glyph">04</div>
+          <h3>Personality Number</h3>
+          <p>Built from the consonants of your name, it shapes how the world first perceives you — your outer expression and presence.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section services" id="services">
+    <div class="container">
+      <p class="section-eyebrow reveal">What We Offer</p>
+      <h2 class="section-title reveal">Consultations Built Around Your Chart</h2>
+      <p class="section-lead reveal">Every reading is personalized — calculated from your exact birth details and delivered with clarity, not guesswork.</p>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">✦</div>
+          <h3>Personal Numerology Reading</h3>
+          <p>A complete map of your Life Path, Destiny, Soul Urge, and Personality numbers with practical guidance for the year ahead.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">♡</div>
+          <h3>Relationship Compatibility</h3>
+          <p>Understand the numerical chemistry between you and a partner — strengths, friction points, and how to grow together.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">⬡</div>
+          <h3>Career Guidance</h3>
+          <p>Align your career decisions with your Destiny and Personal Year numbers to move toward roles that actually fit you.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">◈</div>
+          <h3>Business Numerology</h3>
+          <p>Evaluate a business name, launch date, or partnership structure before you commit — numbers matter in commerce too.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">✎</div>
+          <h3>Name Correction</h3>
+          <p>Fine-tune the spelling or structure of your name to bring it into better alignment with your core numbers.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">☾</div>
+          <h3>Spiritual Life Analysis</h3>
+          <p>A deeper reading into karmic lessons, life cycles, and the spiritual themes running quietly beneath your chart.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE US ================= -->
+  <section class="section why-us" id="why-us">
+    <div class="container">
+      <p class="section-eyebrow reveal">Why Choose Astro Numerology</p>
+      <h2 class="section-title reveal">Precision, Privacy, and Presence</h2>
+
+      <div class="feature-grid">
+        <div class="feature-item reveal">
+          <span class="feature-mark">✓</span>
+          <div><h4>Personalized Reports</h4><p>Every reading is written for your exact chart — never a generic template.</p></div>
+        </div>
+        <div class="feature-item reveal">
+          <span class="feature-mark">✓</span>
+          <div><h4>Accurate Calculations</h4><p>Traditional numerology methods cross-checked for precision.</p></div>
+        </div>
+        <div class="feature-item reveal">
+          <span class="feature-mark">✓</span>
+          <div><h4>Confidential Service</h4><p>Your birth details and conversations stay strictly between us.</p></div>
+        </div>
+        <div class="feature-item reveal">
+          <span class="feature-mark">✓</span>
+          <div><h4>Fast Response</h4><p>Consultation requests are answered within 24 hours.</p></div>
+        </div>
+        <div class="feature-item reveal">
+          <span class="feature-mark">✓</span>
+          <div><h4>Experienced Guidance</h4><p>Over a decade spent reading charts across 25+ countries.</p></div>
+        </div>
+        <div class="feature-item reveal">
+          <span class="feature-mark">✓</span>
+          <div><h4>Lifetime Insights</h4><p>Your report is yours to revisit at every new chapter of life.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BENEFITS INFOGRAPHIC ================= -->
+  <section class="section benefits">
+    <div class="container">
+      <p class="section-eyebrow reveal">Where Numbers Guide You</p>
+      <h2 class="section-title reveal">Numerology Touches Every Corner of Life</h2>
+
+      <div class="benefits-grid">
+        <div class="benefit-node reveal"><span class="benefit-index">01</span><h4>Career</h4><p>Choose paths and timing aligned with your natural strengths.</p></div>
+        <div class="benefit-node reveal"><span class="benefit-index">02</span><h4>Relationships</h4><p>Understand compatibility and communication patterns.</p></div>
+        <div class="benefit-node reveal"><span class="benefit-index">03</span><h4>Business</h4><p>Time launches and name ventures with intention.</p></div>
+        <div class="benefit-node reveal"><span class="benefit-index">04</span><h4>Finance</h4><p>Recognize your money cycles and plan around them.</p></div>
+        <div class="benefit-node reveal"><span class="benefit-index">05</span><h4>Spiritual Growth</h4><p>Identify karmic lessons and life themes worth exploring.</p></div>
+        <div class="benefit-node reveal"><span class="benefit-index">06</span><h4>Self Awareness</h4><p>See your patterns clearly, not just your habits.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <p class="section-eyebrow reveal">Client Stories</p>
+      <h2 class="section-title reveal">Trusted By Seekers Worldwide</h2>
+
+      <div class="testimonial-slider reveal">
+        <div class="testimonial-track" id="testimonialTrack">
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"My reading explained career patterns I could never quite put into words. Genuinely accurate and delivered with real care."</p>
+            <div class="testimonial-author"><strong>Priya Sharma</strong><span>Mumbai, India</span></div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"The compatibility reading gave my partner and I language for things we'd been struggling to discuss for years."</p>
+            <div class="testimonial-author"><strong>James Whitfield</strong><span>London, UK</span></div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"We renamed our startup based on the business numerology session. Three months later, growth finally clicked."</p>
+            <div class="testimonial-author"><strong>Amara Chen</strong><span>Singapore</span></div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"Confidential, precise, and honestly a little emotional. It felt like someone finally explained my own patterns to me."</p>
+            <div class="testimonial-author"><strong>Fatima Al-Sayed</strong><span>Dubai, UAE</span></div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"I was skeptical going in. The Life Path breakdown was so specific to my situation that I booked a second session."</p>
+            <div class="testimonial-author"><strong>Carlos Mendes</strong><span>São Paulo, Brazil</span></div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"The name correction suggestion felt small on paper but changed how people responded to me at work almost immediately."</p>
+            <div class="testimonial-author"><strong>Grace Achieng</strong><span>Nairobi, Kenya</span></div>
+          </article>
+
+        </div>
+
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONSULTATION FORM ================= -->
+  <section class="section consult" id="consult">
+    <div class="nebula nebula-3" aria-hidden="true"></div>
+    <div class="container consult-inner">
+      <div class="consult-copy">
+        <p class="section-eyebrow reveal">Begin Your Reading</p>
+        <h2 class="section-title reveal">Book Your Confidential Consultation</h2>
+        <p class="section-lead reveal">Share your birth details below. Every submission is reviewed personally, and your information is never shared.</p>
+        <ul class="consult-points reveal">
+          <li>Response within 24 hours</li>
+          <li>100% confidential</li>
+          <li>Available for online consultations worldwide</li>
+        </ul>
+      </div>
+
+      <form class="consult-form reveal" id="consultForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+            <span class="field-error" id="err-fullName">Please enter your full name.</span>
+          </div>
+          <div class="form-field">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" autocomplete="tel" required>
+            <span class="field-error" id="err-mobile">Please enter a valid mobile number.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <span class="field-error" id="err-email">Please enter a valid email.</span>
+          </div>
+          <div class="form-field">
+            <label for="dob">Date Of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+            <span class="field-error" id="err-dob">Please select your date of birth.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="birthTime">Birth Time <span class="optional">(if known)</span></label>
+            <input type="time" id="birthTime" name="birthTime">
+          </div>
+          <div class="form-field">
+            <label for="birthPlace">Birth Place</label>
+            <input type="text" id="birthPlace" name="birthPlace" required>
+            <span class="field-error" id="err-birthPlace">Please enter your birth place.</span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us what you'd like clarity on..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+          <span class="btn-text">Get Free Reading</span>
+          <span class="btn-loader" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        <p class="form-privacy-note">Your information is confidential and used only to prepare your consultation.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <p class="section-eyebrow reveal">Common Questions</p>
+      <h2 class="section-title reveal">Frequently Asked Questions</h2>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>How accurate is numerology?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Numerology is a symbolic system refined over thousands of years. When calculated correctly from accurate birth details, it consistently reflects real personality patterns, timing, and tendencies — though it's best used as guidance alongside your own judgment, not a replacement for it.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>How long does a consultation take?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Most personal readings take 24–48 hours to prepare after submission, followed by a live or written consultation session lasting 30–60 minutes depending on the depth of your questions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can numerology help in business?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Business numerology evaluates your company name, founding date, and ownership structure to highlight favorable timing and naming adjustments that support growth.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>What information is required?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Your full birth name, date of birth, and — if available — your birth time and place. The more precise your details, the more accurate your reading will be.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you provide online consultations?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, all consultations are available online worldwide via call or video, so location is never a barrier to booking a session.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRIVACY POLICY ================= -->
+  <section class="section privacy" id="privacy">
+    <div class="container">
+      <p class="section-eyebrow reveal">Our Commitment</p>
+      <h2 class="section-title reveal">Privacy Policy</h2>
+      <div class="privacy-card reveal">
+        <p>All information you share with Astro Numerology — including your name, contact details, date of birth, birth time, and birth place — is collected solely to prepare your personal consultation and is kept strictly confidential.</p>
+        <p>We do not sell, rent, or share your personal information with third parties. Your details are stored securely and used only by our consultation team to deliver your reading.</p>
+        <p>By submitting the consultation form, you consent to us contacting you regarding your reading via the phone number or email address provided.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-glyph" aria-hidden="true">✦</span>
+      <span class="brand-name">Astro<em>Numerology</em></span>
+      <p>Ancient number wisdom, read for the life you're living now.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#consult">Contact</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; <span id="year"></span> Astro Numerology. All rights reserved.</p>
+  </div>
+</footer>
+
+<a href="#consult" class="floating-cta" id="floatingCta">Get Free Reading</a>
+
+<script src="script.js"></script>
 </body>
 </html>
