@@ -43,6 +43,13 @@ cursor:pointer;
 button:hover{
 opacity:0.9;
 }
+
+#successMessage{
+display:none;
+color:green;
+font-weight:bold;
+margin-top:15px;
+}
 </style>
 
 </head>
@@ -54,23 +61,65 @@ opacity:0.9;
 
 <p>Get Your Personalized Numerology Consultation</p>
 
-<form>
+<form id="leadForm">
 
-<input type="text" placeholder="Full Name" required>
+<input type="text" id="name" placeholder="Full Name" required>
 
-<input type="tel" placeholder="Mobile Number" required>
+<input type="tel" id="mobile" placeholder="Mobile Number" required>
 
-<input type="email" placeholder="Email Address" required>
+<input type="email" id="email" placeholder="Email Address" required>
 
-<input type="date">
+<input type="date" id="dob">
 
-<textarea placeholder="Your Message"></textarea>
+<input type="text" id="birthtime" placeholder="Birth Time">
+
+<input type="text" id="birthplace" placeholder="Birth Place">
+
+<textarea id="message" placeholder="Your Message"></textarea>
 
 <button type="submit">Submit</button>
 
 </form>
 
+<p id="successMessage">
+Thank you! Your details have been submitted successfully.
+</p>
+
 </div>
+
+<script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbxse88XrrdPOBfMGedcQZ_mGztVv38o278AkJlc4vhOHRaYueNUoUcB34azjzOak8fy3A/exec";
+
+document.getElementById("leadForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const data = {
+name: document.getElementById("name").value,
+mobile: document.getElementById("mobile").value,
+email: document.getElementById("email").value,
+dob: document.getElementById("dob").value,
+birthtime: document.getElementById("birthtime").value,
+birthplace: document.getElementById("birthplace").value,
+message: document.getElementById("message").value
+};
+
+fetch(scriptURL,{
+method:"POST",
+body:JSON.stringify(data)
+})
+.then(response => {
+document.getElementById("successMessage").style.display="block";
+document.getElementById("leadForm").reset();
+})
+.catch(error => {
+alert("Error! Please try again.");
+});
+
+});
+
+</script>
 
 </body>
 </html>
