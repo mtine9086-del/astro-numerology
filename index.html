@@ -51,8 +51,8 @@ font-weight:bold;
 margin-top:15px;
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="container">
@@ -89,7 +89,7 @@ Thank you! Your details have been submitted successfully.
 
 <script>
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbxse88XrrdPOBfMGedcQZ_mGztVv38o278AkJlc4vhOHRaYueNUoUcB34azjzOak8fy3A/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbxsrB4zqOju5ggm73w2VN2_VIxDTNoUDaDZawpqgSI6i5K8NvfG1VGREBkpBXPgJqB2WQ/exec";
 
 document.getElementById("leadForm").addEventListener("submit", function(e){
 
@@ -114,6 +114,7 @@ document.getElementById("successMessage").style.display="block";
 document.getElementById("leadForm").reset();
 })
 .catch(error => {
+console.error(error);
 alert("Error! Please try again.");
 });
 
