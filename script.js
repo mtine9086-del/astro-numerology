@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHU9Xla5ivMMenIkVdn41ZX1BlY3v6ESxttfB4-KxX5FmyJnzPRskDdr21Lxxe3BLP0A/exec';
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8m2tHUQmx2dfduBULhdmBWQmdZC_qa2RO6MlyHabcMTghqFxYwbmHPM5WNzkGVdlSLA/exec';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
